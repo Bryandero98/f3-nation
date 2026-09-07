@@ -4887,8 +4887,7 @@
                               {
                                 "type": "null"
                               }
-                            ],
-                            "description": "Event tag color"
+                            ]
                           },
                           "description": {
                             "anyOf": [
@@ -4898,31 +4897,30 @@
                               {
                                 "type": "null"
                               }
-                            ],
-                            "description": "Event tag description"
+                            ]
                           },
                           "id": {
-                            "description": "Event tag ID",
-                            "type": "number"
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer"
                           },
                           "isActive": {
-                            "description": "Whether the event tag is active",
                             "type": "boolean"
                           },
                           "name": {
-                            "description": "Event tag name",
                             "type": "string"
                           },
                           "specificOrgId": {
                             "anyOf": [
                               {
-                                "type": "number"
+                                "maximum": 2147483647,
+                                "minimum": -2147483648,
+                                "type": "integer"
                               },
                               {
                                 "type": "null"
                               }
-                            ],
-                            "description": "Org this tag is specific to, if any"
+                            ]
                           },
                           "specificOrgName": {
                             "anyOf": [
@@ -4942,8 +4940,8 @@
                           "description",
                           "color",
                           "specificOrgId",
-                          "specificOrgName",
-                          "isActive"
+                          "isActive",
+                          "specificOrgName"
                         ],
                         "type": "object"
                       },
@@ -5154,14 +5152,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
-                    {
-                      "not": {}
-                    },
-                    {
-                      "not": {}
+                  "properties": {
+                    "eventTagId": {
+                      "description": "The unique identifier of the event tag that was deleted",
+                      "type": "number"
                     }
-                  ]
+                  },
+                  "required": [
+                    "eventTagId"
+                  ],
+                  "type": "object"
                 }
               }
             },
