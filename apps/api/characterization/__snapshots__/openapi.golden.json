@@ -4882,6 +4882,7 @@
                           "color": {
                             "anyOf": [
                               {
+                                "description": "Event tag color",
                                 "type": "string"
                               },
                               {
@@ -4892,6 +4893,7 @@
                           "description": {
                             "anyOf": [
                               {
+                                "description": "Event tag description",
                                 "type": "string"
                               },
                               {
@@ -4900,19 +4902,23 @@
                             ]
                           },
                           "id": {
+                            "description": "Event tag ID",
                             "maximum": 2147483647,
                             "minimum": -2147483648,
                             "type": "integer"
                           },
                           "isActive": {
+                            "description": "Whether the event tag is active",
                             "type": "boolean"
                           },
                           "name": {
+                            "description": "Event tag name",
                             "type": "string"
                           },
                           "specificOrgId": {
                             "anyOf": [
                               {
+                                "description": "Org this tag is specific to, if any",
                                 "maximum": 2147483647,
                                 "minimum": -2147483648,
                                 "type": "integer"
@@ -5052,6 +5058,7 @@
                           "color": {
                             "anyOf": [
                               {
+                                "description": "Event tag color",
                                 "type": "string"
                               },
                               {
@@ -5065,6 +5072,7 @@
                           "description": {
                             "anyOf": [
                               {
+                                "description": "Event tag description",
                                 "type": "string"
                               },
                               {
@@ -5073,19 +5081,23 @@
                             ]
                           },
                           "id": {
+                            "description": "Event tag ID",
                             "maximum": 2147483647,
                             "minimum": -2147483648,
                             "type": "integer"
                           },
                           "isActive": {
+                            "description": "Whether the event tag is active",
                             "type": "boolean"
                           },
                           "name": {
+                            "description": "Event tag name",
                             "type": "string"
                           },
                           "specificOrgId": {
                             "anyOf": [
                               {
+                                "description": "Org this tag is specific to, if any",
                                 "maximum": 2147483647,
                                 "minimum": -2147483648,
                                 "type": "integer"
@@ -5200,6 +5212,7 @@
                         "color": {
                           "anyOf": [
                             {
+                              "description": "Event tag color",
                               "type": "string"
                             },
                             {
@@ -5213,6 +5226,7 @@
                         "description": {
                           "anyOf": [
                             {
+                              "description": "Event tag description",
                               "type": "string"
                             },
                             {
@@ -5221,19 +5235,23 @@
                           ]
                         },
                         "id": {
+                          "description": "Event tag ID",
                           "maximum": 2147483647,
                           "minimum": -2147483648,
                           "type": "integer"
                         },
                         "isActive": {
+                          "description": "Whether the event tag is active",
                           "type": "boolean"
                         },
                         "name": {
+                          "description": "Event tag name",
                           "type": "string"
                         },
                         "specificOrgId": {
                           "anyOf": [
                             {
+                              "description": "Org this tag is specific to, if any",
                               "maximum": 2147483647,
                               "minimum": -2147483648,
                               "type": "integer"
@@ -5314,6 +5332,7 @@
                           "color": {
                             "anyOf": [
                               {
+                                "description": "Event tag color",
                                 "type": "string"
                               },
                               {
@@ -5327,6 +5346,7 @@
                           "description": {
                             "anyOf": [
                               {
+                                "description": "Event tag description",
                                 "type": "string"
                               },
                               {
@@ -5335,19 +5355,23 @@
                             ]
                           },
                           "id": {
+                            "description": "Event tag ID",
                             "maximum": 2147483647,
                             "minimum": -2147483648,
                             "type": "integer"
                           },
                           "isActive": {
+                            "description": "Whether the event tag is active",
                             "type": "boolean"
                           },
                           "name": {
+                            "description": "Event tag name",
                             "type": "string"
                           },
                           "specificOrgId": {
                             "anyOf": [
                               {
+                                "description": "Org this tag is specific to, if any",
                                 "maximum": 2147483647,
                                 "minimum": -2147483648,
                                 "type": "integer"
