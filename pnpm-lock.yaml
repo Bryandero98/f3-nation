@@ -926,6 +926,9 @@ importers:
       '@acme/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@acme/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@auth/core':
         specifier: 0.41.3
         version: 0.41.3(nodemailer@10.0.16)
@@ -1050,6 +1053,9 @@ importers:
 
   apps/homepage:
     dependencies:
+      '@acme/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
       '@acme/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -2178,6 +2184,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 10.12.0(jiti@2.7.0)(supports-color@7.2.0)
+      next:
+        specifier: 'catalog:'
+        version: 16.3.8(@babel/core@7.29.0(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.63.0)(@types/node@25.9.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       prettier:
         specifier: 'catalog:'
         version: 3.9.9

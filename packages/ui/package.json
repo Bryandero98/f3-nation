@@ -58,6 +58,7 @@
     "@types/lodash": "catalog:",
     "@types/react": "catalog:",
     "eslint": "catalog:",
+    "next": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
