@@ -9,11 +9,12 @@ export interface RouteErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
   /**
-   * Called once per distinct `error` instance, before render. Wire this up
-   * to the app's own `~/lib/logging` `logError` so every route error still
-   * goes through the app's structured logger - and, where an app has
-   * Sentry configured, reaches it automatically via that logger's
-   * `setErrorReporter` hook (see `packages/logger`).
+   * Called once per distinct `error` instance, before render. This runs in
+   * the browser, so wire it to a browser-safe reporter only - `console.error`,
+   * or `Sentry.captureException` where the app has Sentry's client SDK
+   * configured. Never the `@acme/logger` (pino) helpers: pino depends on
+   * `node:module` and other Node builtins that don't exist in a client
+   * bundle, and pulling it in here breaks the build (see #620).
    */
   onError?: (error: Error & { digest?: string }) => void;
 }

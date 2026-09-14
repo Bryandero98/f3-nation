@@ -1005,9 +1005,6 @@ importers:
 
   apps/homepage:
     dependencies:
-      '@acme/logger':
-        specifier: workspace:*
-        version: link:../../packages/logger
       '@acme/shared':
         specifier: workspace:*
         version: link:../../packages/shared
