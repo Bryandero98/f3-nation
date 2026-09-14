@@ -15,7 +15,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/logger": "workspace:*",
     "@acme/shared": "workspace:*",
     "@acme/ui": "workspace:*",
     "@f3nation/health": "workspace:*",

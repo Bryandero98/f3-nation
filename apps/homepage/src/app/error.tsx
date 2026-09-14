@@ -2,18 +2,9 @@
 
 import { RouteError } from "@acme/ui/route-error";
 
-import { logError } from "@/lib/logging";
-
 export default function Error(props: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  return (
-    <RouteError
-      {...props}
-      onError={(error) =>
-        logError("homepage.route.error", { digest: error.digest }, error)
-      }
-    />
-  );
+  return <RouteError {...props} onError={(error) => console.error(error)} />;
 }

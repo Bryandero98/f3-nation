@@ -1,8 +1,8 @@
 "use client";
 
-import { RouteError } from "@acme/ui/route-error";
+import * as Sentry from "@sentry/nextjs";
 
-import { logError } from "~/lib/logging";
+import { RouteError } from "@acme/ui/route-error";
 
 export default function Error(props: {
   error: Error & { digest?: string };
@@ -11,9 +11,7 @@ export default function Error(props: {
   return (
     <RouteError
       {...props}
-      onError={(error) =>
-        logError("map.route.error", { digest: error.digest }, error)
-      }
+      onError={(error) => Sentry.captureException(error)}
     />
   );
 }
