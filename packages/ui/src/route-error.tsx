@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { AlertTriangle } from "lucide-react";
 
 import { Button } from "./button";
@@ -25,9 +25,16 @@ export interface RouteErrorProps {
  * through to Next's unstyled default screen.
  */
 export function RouteError({ error, reset, onError }: RouteErrorProps) {
+  // Every caller passes an inline `onError`, a fresh closure on each render.
+  // Keeping it out of the effect's deps (via a ref) is what makes "once per
+  // distinct error" above true - depending on it directly would re-run the
+  // effect, and re-report the same error, on any unrelated parent rerender.
+  const onErrorRef = useRef(onError);
+  onErrorRef.current = onError;
+
   useEffect(() => {
-    onError?.(error);
-  }, [error, onError]);
+    onErrorRef.current?.(error);
+  }, [error]);
 
   return (
     <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 p-8 text-center">
