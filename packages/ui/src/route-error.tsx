@@ -10,11 +10,15 @@ export interface RouteErrorProps {
   reset: () => void;
   /**
    * Called once per distinct `error` instance, before render. This runs in
-   * the browser, so wire it to a browser-safe reporter only - `console.error`,
-   * or `Sentry.captureException` where the app has Sentry's client SDK
-   * configured. Never the `@acme/logger` (pino) helpers: pino depends on
+   * the browser, so wire it to a browser-safe reporter only (for example
+   * `posthog.captureException` where the app has the PostHog client SDK
+   * configured). Never the `@acme/logger` (pino) helpers: pino depends on
    * `node:module` and other Node builtins that don't exist in a client
-   * bundle, and pulling it in here breaks the build (see #620).
+   * bundle, and pulling it in here breaks the build (see #620). Leave it
+   * unset where no browser-safe reporter exists: React and Next already write
+   * a caught error to the browser console, so a `console.error` here would
+   * only repeat that line (and AGENTS.md reserves raw `console.*` for three
+   * documented sites).
    */
   onError?: (error: Error & { digest?: string }) => void;
 }
