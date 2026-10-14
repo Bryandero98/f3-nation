@@ -14,16 +14,19 @@ export default function Error(props: {
     <RouteError
       {...props}
       onError={(error) => {
-        // Same gate and failure handling as global-error.tsx: report only when
-        // PostHog is configured, and never let a blocked ingest host throw out
-        // of the error boundary itself.
+        // Same gate as global-error.tsx: report only when PostHog is configured.
         if (!env.NEXT_PUBLIC_POSTHOG_KEY) return;
+        // Only server-originated errors carry a digest. Those are already
+        // reported with full context by `onRequestError` in instrumentation.ts;
+        // the client copy would only hold Next's redacted message.
+        if (error.digest) return;
         try {
           posthog.captureException(error);
-        } catch (reportErr) {
-          // @acme/logger is pino and does not run in the browser (see
-          // global-error.tsx), so console.error is the documented fallback.
-          console.error("posthog.capture_exception_failed", reportErr);
+        } catch {
+          // A blocked ingest host must not throw out of the error boundary
+          // itself. React already logs the caught error to the console, and
+          // docs/OBSERVABILITY_PLAN.md §6 keeps its list of console.* sites
+          // exhaustive, so this boundary adds none.
         }
       }}
     />
